@@ -1,0 +1,112 @@
+#/translations/messages.fr.yaml
+
+#base.html.twig
+base:
+  nav:
+    title: 'Magasin Symfony'
+    li1: 'Produit'
+    li2: 'Panier'
+    li3: 'Commande'
+
+#Formulaires
+Nom: 'Nom'
+Photo: 'Photo'
+Quantite: 'Quantité'
+Prix: 'Prix'
+Ajouter au Magasin: 'Ajouter au Magasin'
+Ajouter au Panier: 'Ajouter au Panier'
+
+#produit/
+produit:
+
+  #produit/index.html.twig
+  main:
+    blocktitle: 'Liste des Produits'
+    titleh1: 'Produit en Magasin'
+    nb_product: "Il y'a nb article(s) dans notre site"
+    nb_stock:  "Réserve totale: nb"
+
+    table:
+      th1: 'Aperçu'
+      th2: 'Nom'
+      th3: 'Quantité'
+      th4: 'Prix'
+      th5: 'Fiche Produit'
+      btn: 'Voir Produit'
+      out: 'Rupture de Stock'
+
+    titleh3: 'Ajouter un produit au magasin'
+    titleh3error: 'Aucun produit disponible'
+  
+  #produit/produit.html.twig
+  fiche:
+    blocktitle: 'Fiche x'
+    qte: 'Quantité: x'
+    prix: 'Prix: x€'
+    btn-green: 'Modifier'
+    btn-red: 'Supprimer'
+    btn-back: 'Retour'
+    titleh3: 'Ajouter au Panier'
+    titleh3error: 'Produit épuisé'
+
+    #produit/produit_update.html.twig
+    edit:
+      blocktitle: 'Modification Produit x'
+      titleh1: 'Modification: x'
+  
+#panier/
+panier:
+
+  #panier/index.html.twig
+  main:
+    blocktitle: 'Panier'
+    titleh1: 'Votre Panier'
+    nb_product: "Il y'a nb produit(s) dans votre panier"
+    nb_qte:  "Quantité totale: nb"
+
+    table:
+      th5: 'Ajouter le'
+      btn-red: 'Enlever'
+      btn-blue: 'Acheter'
+      total: 'Total du Panier'
+
+    btn-grey: 'Continuer mes Achats'
+    titleh2none: 'Aucun produit dans le panier'
+    titleh4see: 'Voir les produits disponible'
+
+#commande/
+commande:
+
+  #commande/index.html.twig
+  main:
+    blocktitle: 'Commande'
+    titleh1: 'Produit Acheté'
+    nb_product: "Vous avez acheté nb produit(s)"
+    nb_qte:  "Quantité totale: nb"
+    titleh2none: "Vous n'avez rien acheté!"
+
+    table:
+      th5: 'Date Achat'
+      total: 'Total Dépensé:'
+
+#addFlash Controller
+file:
+
+  produit:
+    ok1: 'Produit ajouté'
+    ok2: 'Produit à jour'
+    ok3: 'Produit Supprimé'
+    ok4: 'Produit ajouté au panier'
+    error1: 'Produit Introuvable'
+    error2: 'Quantité invalide'
+
+  panier:
+    ok1: "Produit(s) acheté(s)"
+    ok2: "Produit enlever du panier"
+
+
+
+
+
+    
+

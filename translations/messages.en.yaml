@@ -1,0 +1,107 @@
+#/translations/messages.en.yaml
+
+#base.html.twig
+base:
+  nav:
+    title: Symfony Store
+    li1: Product
+    li2: Cart
+    li3: Order
+
+#Formulaires
+Nom: 'Name'
+Photo: 'Picture'
+Quantite: 'Quantity'
+Prix: 'Price'
+Ajouter au Magasin: 'Add to Store'
+Ajouter au Panier: 'Add to Cart'
+
+#produit/
+produit:
+
+  #produit/index.html.twig
+  main:
+    blocktitle: 'Products List'
+    titleh1: 'Product in Store'
+    nb_product: "There is nb article(s) in our site"
+    nb_stock:  "Total stock: nb"
+
+    table:
+      th1: 'Preview'
+      th2: 'Name'
+      th3: 'Quantity'
+      th4: 'Price'
+      th5: 'Product sheet'
+      btn: 'See Product'
+      out: 'Out of Stock'
+
+    titleh3: 'Add product to the store'
+    titleh3error: 'No product available'
+  
+  #produit/produit.html.twig
+  fiche:
+    blocktitle: "x's Sheet"
+    qte: 'Quantity: x'
+    prix: 'Price: x€'
+    btn-green: 'Edit'
+    btn-red: 'Delete'
+    btn-back: 'Back'
+    titleh3: 'Add to Cart'
+    titleh3error: 'Product out of stock'
+
+    #produit/produit_update.html.twig
+    edit:
+      blocktitle: 'Edit Product x'
+      titleh1: 'Edit: x'
+
+
+#panier/
+panier:
+
+  #panier/index.html.twig
+  main:
+    blocktitle: 'Cart'
+    titleh1: 'Your Cart'
+    nb_product: "There are nb product(s) in your cart"
+    nb_qte:  "Total quantity: nb"
+    
+    table:
+      th5: 'Add the'
+      btn-red: 'Remove'
+      btn-blue: 'Buy'
+      total: 'Total Cart'
+
+    btn-grey: 'Continue Shopping'
+    titleh2none: 'No product in the cart'
+    titleh4see: 'See available products'
+
+#commande/
+commande:
+
+  #commande/index.html.twig
+  main:
+    blocktitle: 'Order'
+    titleh1: 'Purchased Product'
+    nb_product: "You bought nb product(s)"
+    nb_qte:  "Total quantity: nb"
+    titleh2none: "You haven't bought anything!"
+
+    table:
+      th5: 'Date Purchase'
+      total: 'Total Spent:'
+
+#addFlash Controller
+file:
+
+  produit:
+    ok1: 'Product added'
+    ok2: 'Product updated'
+    ok3: 'Product deleted'
+    ok4: 'Product added to cart'
+    error1: 'Product Not Found'
+    error2: 'Invalid quantity'
+
+  panier:
+    ok1: "Product(s) purchased"
+    ok2: "Product remove from basket"
+
