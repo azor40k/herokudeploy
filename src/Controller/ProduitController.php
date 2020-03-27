@@ -13,7 +13,7 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 class ProduitController extends AbstractController {
 
     /**
-     * @Route("/", name="produit")
+     * @Route("/produit", name="produit")
      */
     public function index(Request $request, TranslatorInterface $translator) {
         $em=$this->getDoctrine()->getManager();
