@@ -1,0 +1,61 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ 'produit.main.blocktitle'|trans }}{% endblock %}
+
+{% block body %}
+
+<h1 class="font-weight-bold text-center">{{ 'produit.main.titleh1'|trans }}</h1>
+
+{% if produits is not empty %}
+
+{% set total_produit = 0 %} 
+{% for produit in produits %}
+    {% set total_produit = total_produit + produit.quantite %} 
+{% endfor %}
+
+<h3>{{ 'produit.main.nb_product'|trans({'nb':produits|length}) }}</h3>
+<h4>{{ 'produit.main.nb_stock'|trans({'nb':total_produit}) }}</h4>
+
+<table class="table text-center">
+
+    <thead>
+        <tr>
+            <th>{{ 'produit.main.table.th1'|trans }}</th>
+            <th>{{ 'produit.main.table.th2'|trans }}</th>
+            <th>{{ 'produit.main.table.th3'|trans }}</th>
+            <th>{{ 'produit.main.table.th4'|trans }}</th>
+            <th>{{ 'produit.main.table.th5'|trans }}</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        {% for produit in produits %}
+        <tr>
+            <td><img src="{{ asset('uploads/'~produit.photo)}}" style="width:200px; heigt:200px;"/></td>
+            <td><a>{{produit.nom}}</a></td>            
+            <td>
+            {% if produit.quantite == 0 %}
+            <span>{{'produit.main.table.out'|trans}}</span>
+            {% else %}
+            {{produit.quantite}}
+            {% endif %}
+            </td>
+            <td>{{produit.prix}}€</td>
+            <td><button type="button" class="btn btn-primary"><a class="text-light" href="{{ path('mon_produit',{'id':produit.id}) }}">{{ 'produit.main.table.btn'|trans }}</a></button></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+
+</table>
+
+{% else %}
+<h3 class="text-danger">{{ 'produit.main.titleh3error'|trans }}</h3>
+{% endif %}
+
+<br/>
+<div>
+    <h3>{{ 'produit.main.titleh3'|trans }}</h3>
+    {{ form(form_produit_add) }}
+</div>
+
+{% endblock %}

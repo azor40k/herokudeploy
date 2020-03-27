@@ -1,0 +1,72 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{'commande.main.blocktitle'|trans}}{% endblock %}
+
+{% block body %}
+<h1 class="font-weight-bold text-center">{{'commande.main.titleh1'|trans}}</h1>
+
+{% if cart is not empty %}
+
+{% set total_produit = 0 %} 
+{% for quantite in cart %}
+    {% set total_produit = total_produit + quantite.quantite %} 
+{% endfor %}
+
+<h3>{{'commande.main.nb_product'|trans({'nb' : cart|length})}}</h3>
+<h4>{{'commande.main.nb_qte'|trans({'nb' : total_produit})}}</h4>
+
+<table class="table text-center">
+    <thead>
+        <tr>
+            <th>{{ 'produit.main.table.th1'|trans }}</th>
+            <th>{{ 'produit.main.table.th2'|trans }}</th>
+            <th>{{ 'produit.main.table.th3'|trans }}</th>
+            <th>{{ 'produit.main.table.th4'|trans }}</th>
+            <th>{{'commande.main.table.th5'|trans}}</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for produit in cart %}
+        {% if produit.etat == true %}        
+        <tr>
+            <td><img src="{{ asset('uploads/'~produit.produit.photo)}}" style="width:200px; heigt:200px;"/></td>
+            <td><a>{{produit.produit.nom}}</a></td>            
+            <td>
+            {% if produit.quantite == 0 %}
+            <span>Rupture de Stock</span>
+            {% else %}
+            {{produit.quantite}}
+            {% endif %}
+            </td>
+            <td>{{produit.produit.prix}}€</td>
+            <td>{{produit.dateAchat|date('d/m/Y H:i:s')}}</td>
+        </tr>
+        {% endif %}
+        {% endfor %}
+        
+    </tbody>
+    <tfoot>
+        {% set total_cart = 0 %} 
+        {% for prix in cart %}
+            {% set total_cart = total_cart + (prix.quantite * prix.produit.prix) %} 
+        {% endfor %}
+
+        <tr>
+            <td>       
+            <button type="button" class="btn btn-secondary"><a class="text-light" href="/produit">{{'panier.main.btn-grey'|trans}}</a></button>    
+            </td>
+            <td></td>
+            <td><h3>{{'commande.main.table.total'|trans}}</h3></td>
+            <td><h3> {{total_cart}}€</h3></td>
+            <td></td>
+        </tr>
+    </tfoot>
+</table><br/>
+
+
+{% else %}
+<h2 class="text-danger">{{'commande.main.titleh2none'|trans}}</h2><br/>
+<h4><a href="/produit">{{'panier.main.titleh4see'|trans}}</a></h4>
+{% endif %}<br/>
+
+{% endblock %}

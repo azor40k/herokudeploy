@@ -1,12 +1,43 @@
 <!DOCTYPE html>
 <html>
+
     <head>
+
         <meta charset="UTF-8">
         <title>{% block title %}Welcome!{% endblock %}</title>
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         {% block stylesheets %}{% endblock %}
+
     </head>
+
     <body>
-        {% block body %}{% endblock %}
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="/">{{ 'base.nav.title'|trans }}</a>
+            <div>
+                <ul class="navbar-nav">
+                    <li><a class="nav-link" href="/produit">{{ 'base.nav.li1'|trans }}</span></a></li>
+                    <li><a class="nav-link" href="/">{{ 'base.nav.li2'|trans }}</a></li>
+                    <li><a class="nav-link" href="/commande">{{ 'base.nav.li3'|trans }}</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="container">
+
+            {% for type, messages in app.flashes %}
+                {% for message in messages %}
+                    <p class="alert alert-{{ type }}">{{ message }}</p>
+                {% endfor %}
+            {% endfor %}
+
+            {% block body %}{% endblock %}
+            
+        </div>
+        
         {% block javascripts %}{% endblock %}
+
     </body>
+
 </html>

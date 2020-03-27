@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{'produit.fiche.edit.blocktitle'|trans({'x':produit.id})}}{% endblock %}
+
+{% block body %}
+
+<h1>{{'produit.fiche.edit.titleh1'|trans({'x':produit.nom})}}</h1>
+
+<div>
+
+<img src="{{ asset('uploads/' ~ produit.photo)}}" style="width:400px; heigt:400px;"/>
+
+<div><span>{{ 'produit.fiche.qte'|trans({'x' :produit.prix})}}</span></div>
+<div><span>{{ 'produit.fiche.prix'|trans({'x' :produit.prix})}}</span></div>
+<br>
+<br>
+
+<div>
+{{ form(form_produit_update) }}
+</div>
+
+{% endblock %}

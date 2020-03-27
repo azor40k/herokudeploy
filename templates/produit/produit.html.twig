@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ 'produit.fiche.blocktitle'|trans({'x' :produit.nom})}}{% endblock %}
+
+{% block body %}
+
+<h1>{{produit.nom}}</h1>
+
+<div>
+
+    <img src="{{ asset('uploads/' ~ produit.photo)}}" style="width:400px; heigt:400px;" />
+
+    {% if produit.quantite != 0 %}
+
+    <div><span>{{ 'produit.fiche.qte'|trans({'x' :produit.quantite})}}</span></div>
+    <div><span>{{ 'produit.fiche.prix'|trans({'x' :produit.prix})}}</span></div>
+    <button type="button" class="btn btn-success"><a class="text-light"
+            href="{{ path('produit_update', {'id':produit.id}) }}">{{ 'produit.fiche.btn-green'|trans}}</a></button>
+    <br /><br />
+
+    <div>
+        <h3>{{ 'produit.fiche.titleh3'|trans}} </h3>
+        {{ form(form_panier_add) }}
+    </div>
+
+    {% else %}
+    <h3 class="text-danger">{{ 'produit.fiche.titleh3error'|trans}}</h3>
+    {% endif %}
+
+    <button type="button" class="btn btn-danger"><a class="text-light"
+            href="{{ path('produit_delete', {'id':produit.id}) }}">{{ 'produit.fiche.btn-red'|trans}}</a></button>
+    <br /><br />
+    <a href="/produit">{{ 'produit.fiche.btn-back'|trans}}</a>
+
+</div>
+{% endblock %}
